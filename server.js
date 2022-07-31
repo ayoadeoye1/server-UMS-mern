@@ -10,12 +10,13 @@ dotenv.config()
 
 const app = express()
 
-app.options('*', cors())
-
 app.use(bodyParser.json({ limit: '10mb' }))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}))
 
 app.use('/api', router)
 
