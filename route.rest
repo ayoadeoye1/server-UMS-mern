@@ -1,0 +1,22 @@
+
+POST http://localhost:8000/sign-up
+Content-Type: application/json
+
+{
+    "username": "don",
+    "email": "don@gmail.com",
+    "password": "don123"
+}
+
+###
+
+POST http://localhost:8000/sign-in
+Content-Type: application/json
+
+{
+    "email": "don@gmail.com",
+    "password": "don123"
+}
+
+###
+GET http://localhost:8000/get-posts
