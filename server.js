@@ -13,12 +13,12 @@ const app = express()
 app.use(bodyParser.json({ limit: '10mb' }))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
-app.use(cors(
-    {
-        origin: '*',
-        methods: ["GET", "POST", "DELETE"]
-    }
-))
+app.use(cors())
+
+// {
+//     origin: '*',
+//     methods: ["GET", "POST", "DELETE"]
+// }
 
 app.use('/api', router)
 
