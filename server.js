@@ -21,16 +21,17 @@ app.use(cors({
 app.use('/api', router)
 
 const uri = process.env.MONGO_URI;
+console.log(uri);
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true})
-.then(()=>{
-    console.log('connected to DB');
-})
-.catch((error) =>{
-    console.log(`error in connecting to DB: ${error}`) 
-})
-// mongoose.connection.on('error', (err)=> { console.log(`error in connecting to DB: ${err}`)})
-// mongoose.connection.once('open', ()=> { console.log(`connected to DB!`)})
+mongoose.connect(uri)
+// .then(()=>{
+//     console.log('connected to DB');
+// })
+// .catch((error) =>{
+//     console.log(`error in connecting to DB: ${error}`) 
+// })
+mongoose.connection.on('error', (err)=> { console.log(`error in connecting to DB: ${err}`)})
+mongoose.connection.once('open', ()=> { console.log(`connected to DB!`)})
 
 const PORT = process.env.PORT
 
