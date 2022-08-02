@@ -22,11 +22,11 @@ app.use('/api', router)
 
 const uri = process.env.MONGO_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri)
 .then(()=>{
     console.log('connected to DB');
 })
-.catch(()=>{
+.catch((err)=>{
     console.log(`error in connecting to DB: ${err}`)
 })
 
