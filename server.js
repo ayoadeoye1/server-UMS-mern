@@ -15,8 +15,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 app.use(cors(
     {
-        origin: 'https://ums-client.netlify.app',
-        credentials: true
+        origin: 'https://ums-client.netlify.app/'
     }
 ))
 
@@ -24,10 +23,10 @@ app.use('/api', router)
 
 const uri = process.env.MONGO_URI;
 
-const Entry = async() =>{
+const Entry = async () =>{
     try {
-        const cnn = await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-        cnn && console.log('connected to DB') 
+        await mongoose.connect(uri, { useNewUrlParser: true })
+        console.log('connected to DB') 
     } catch (error) {
         console.log(`error in connecting to DB: ${error}`) 
     }

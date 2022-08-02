@@ -4,7 +4,7 @@
   "main": "sever.js",
   "type": "module",
   "scripts": {
-    "web": "node server.js"
+    "dev": "node server.js"
   },
   "author": "",
   "license": "ISC",
