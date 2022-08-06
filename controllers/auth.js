@@ -9,6 +9,8 @@ const S_KEY = process.env.SECRET_KEY
 // console.log(S_KEY)
 
 export const delAcc = async(req, res) =>{
+    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
+
     const { _id } = await req.dbUser
     const user = await AuthModel.findById({_id: _id})
     const del = user.remove();
@@ -18,6 +20,8 @@ export const delAcc = async(req, res) =>{
 }
 
 export const user = async (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
+
     try {
         const { username, email } = await req.dbUser;
         res.status(200).json({username, email})
@@ -28,6 +32,7 @@ export const user = async (req, res) =>{
 
 export const signUp = async(req, res) =>{
     const { username, email, password } = req.body;
+    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
 
     if(!username || !email || !password){
         return res.status(400).json({error: 'all parameters are required'})
@@ -50,7 +55,7 @@ export const signUp = async(req, res) =>{
 export const signIn = async (req, res) =>{
     const {email, password} = req.body;
     // console.log(email, password)
-    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app:54783")
+    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
     if(!email || !password){
         return res.status(400).json({error: 'all parameters are required'})
     }else{
