@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 app.use(cors(
     {
-        origin: "*", //https://ums-client.netlify.app
+        origin: "*", //https://ums-client.netlify.app:54783
+        credentials: true
     }
 ))
 

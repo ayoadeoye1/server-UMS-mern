@@ -50,11 +50,11 @@ export const signUp = async(req, res) =>{
 export const signIn = async (req, res) =>{
     const {email, password} = req.body;
     // console.log(email, password)
-
+    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app:54783")
     if(!email || !password){
         return res.status(400).json({error: 'all parameters are required'})
     }else{
-        
+
         try {
             const dbUser = await AuthModel.findOne({email: email})
             if(!dbUser){
