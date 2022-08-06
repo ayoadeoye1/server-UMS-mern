@@ -55,7 +55,7 @@ export const signUp = async(req, res) =>{
 export const signIn = async (req, res) =>{
     const {email, password} = req.body;
     // console.log(email, password)
-    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
+    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app/signin")
     if(!email || !password){
         return res.status(400).json({error: 'all parameters are required'})
     }else{
