@@ -1,7 +1,6 @@
 import PostModel from '../models/post.js';
 
 export const posts = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
 
     try {
         const post = await PostModel.find().sort('-created');
@@ -13,7 +12,6 @@ export const posts = async (req, res) => {
 
 export const post = async (req, res) => {
     const { username } = req.dbUser;
-    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
 
     try {
         const userPost = await PostModel.find({author: username}).sort('-created');
@@ -27,7 +25,6 @@ export const createPost = async (req, res) => {
     const { username } = await req.dbUser;
     const { title, article, image } = req.body;
     
-    res.header("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
 
     const PostD = {
         title,

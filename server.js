@@ -20,6 +20,10 @@ app.use(cors(
     }
 ))
 
+app.use(
+    res.setHeader("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
+)
+
 app.use('/api', router)
 
 const uri = process.env.MONGO_URI || "mongodb+srv://ayoadeoye:AE205lrg@my-mongo-cluster.edykd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
