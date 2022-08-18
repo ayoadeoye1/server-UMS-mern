@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 app.use(cors(
     {
-        origin: "https://ums-client.netlify.app",
+        origin: "https://www.ums-client.netlify.app/",
         credentials: true
     }
 ))
 
 app.use(
-    res.setHeader("Access-Control-Allow-Origin", "https://ums-client.netlify.app")
+    res.setHeader("Access-Control-Allow-Origin", "https://ums-client.netlify.app/")
 )
 
 app.use('/api', router)
